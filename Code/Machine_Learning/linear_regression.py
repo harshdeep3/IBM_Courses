@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 if __name__ == "__main__":
     
     # load data
-    df = pd.read_csv("Code\\Machine_Learning\\FuelConsumptionCo2.csv")
+    df = pd.read_csv("Code\\Machine_Learning\\Data\\FuelConsumptionCo2.csv")
     
     # get the right columns
     cdf = df[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_COMB','CO2EMISSIONS']]
@@ -50,6 +50,28 @@ if __name__ == "__main__":
     
     regr.fit(X_train, y_train)
     
+    predicted_test_y_ = regr.predict(X_test)
+    
+    print(f"Accuracy: {regr.score(X_test,y_test)}")
+    print(f"Mean absolute error: {mean_squared_error(predicted_test_y_, y_test)}")
+    print(f"Residual sum of squares (MSE): {np.mean((predicted_test_y_ - y_test) ** 2)}")
+    print(f"R2-score: {r2_score(y_test , predicted_test_y_)}")
+    
+    ########################## Multiple Linear Regression ###########################
+    
+    print("\n\nMultiple Linear Regression\n")
+    
+    cdf = df[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_CITY','FUELCONSUMPTION_HWY','FUELCONSUMPTION_COMB','CO2EMISSIONS']]
+    # print(f"\n\n\n{cdf.head(9)}")
+    
+    train_x = np.asanyarray(train[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_COMB']])
+    train_y = np.asanyarray(train[['CO2EMISSIONS']])
+    
+    X_train, X_test, y_train, y_test = train_test_split(train_x, train_y, test_size=0.2)
+    
+    regr.fit(X_train, y_train)
+    
+    print(f"Coefficients {regr.coef_}")
     predicted_test_y_ = regr.predict(X_test)
     
     print(f"Accuracy: {regr.score(X_test,y_test)}")
