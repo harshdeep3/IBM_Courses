@@ -10,6 +10,16 @@ This is based on the similarities to other cases. Data points that near each oth
 ## Decision Trees
 Decision trees are built by splitting the training set into distinct nodes, where one node contains all of, or most of, one category of the data. 
 
+## Logistic Regression
+Logistic regression is similar to Linear regression. Where linear regression predicts continuous values of variables, logistic variables predicts categorical/discrete values instead of a numeric one. 
+
+### Sigmoid function
+This limits the output to be between 0 and 1. 
+
+## Support Vector Machines (SVM)
+SVM is a supervised algorithm that classifies cases by finding a separator. SVM first map data to high-dimensional feature space so that the data points can be categorised. Then a separator is is estimated for the data, the data should be transofmred in such a way that the separator could be drawn as a hyper-plane. 
+For example if we have 2D data then the data is mapped to the 3D plane allowing for a separator to estimated. 
+
 
 ## Evaluation Metrics
 
