@@ -62,7 +62,5 @@ if __name__ == "__main__":
     df = df.assign(Diesel=one_hot_encodding['diesel'].astype(int),
                    Gas=one_hot_encodding['gas'].astype(int))
     
-    
-    
     # get top 5 rows
     print(df.head())
